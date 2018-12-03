@@ -7,8 +7,6 @@ inputs:
     type: Directory
     inputBinding:
       position: 0
-    'sbg:x': 0
-    'sbg:y': 53.5
   - id: hmm
     type: File
 outputs: []
@@ -29,6 +27,7 @@ steps:
       - id: translated
     run: fasta-translate/fasta-db.cwl
     scatterMethod: dotproduct
+    scatter: [fasta]
   - id: hmm_search
     in:
       - id: fasta
@@ -38,7 +37,14 @@ steps:
     out:
       - id: domtblout
     run: hmm-search/hmm-search.cwl
+    scatter:
+      - fasta
+    scatterMethod: dotproduct
   - id: hmm_html_report
+    scatter:
+      - fasta
+      - table
+    scatterMethod: dotproduct
     in:
       - id: fasta
         source: fasta_db/translated
@@ -47,4 +53,5 @@ steps:
     out:
       - id: html
     run: hmm-html-report/hmm-html-report.cwl
-requirements: []
+requirements:
+  - class: ScatterFeatureRequirement

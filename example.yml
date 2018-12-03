@@ -1,3 +1,6 @@
 directory:
   class: Directory
   path: data/fasta
+hmm:
+  class: File
+  path: data/Pfam-A.hmm
