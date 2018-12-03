@@ -1,0 +1,4 @@
+fasta:
+  class: File
+  path: ../data/fasta/CENF01.fasta.gz
+dest: translated.fasta
