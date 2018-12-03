@@ -1,6 +1,6 @@
-#!/usr/bin/python3.5
+#!/usr/local/bin/python
 
-import os, warnings, argparse, pathlib, gzip, tqdm, xphyle
+import os, warnings, argparse, gzip, tqdm, xphyle
 from Bio import SeqIO
 from sys import argv
 from Bio.Seq import Seq
@@ -16,7 +16,7 @@ def rreplace(s, old, new, occurrence):
     return new.join(li)
 
 def translate(fasta):
-    dbf = rreplace(fasta, 'fasta', 'fasta.db', 1)
+    dbf = os.path.basename( rreplace(fasta, 'fasta', 'fasta.db', 1 ) )
     print('Translating...')
     with xopen(dbf, 'wt') as db:
         parser = SeqIO.parse(xopen(fasta, 'rt'), 'fasta')
