@@ -19,5 +19,5 @@ outputs:
   translated:
     type: File    
     outputBinding:
-      glob:  "*.db.fasta"
+      glob:  "*.fasta.db*"
 stdout: stdout.txt
