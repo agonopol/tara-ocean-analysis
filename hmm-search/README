@@ -1,0 +1,9 @@
+# fastadb-docker-cwl
+
+build docker:
+
+```
+docker build -t git.imp.fu-berlin.de:5000/bzfgonop/tara-ocean-analysis/hmm-search .
+docker push git.imp.fu-berlin.de:5000/bzfgonop/tara-ocean-analysis/hmm-search
+```
+

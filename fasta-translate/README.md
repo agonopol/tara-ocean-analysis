@@ -1,7 +1,5 @@
 # fastadb-docker-cwl
 
-Example for wrapping a simple job in a docker and adding CWL to run the docker
-
 build docker:
 
 ```
